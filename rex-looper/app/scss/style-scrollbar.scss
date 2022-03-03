@@ -1,0 +1,20 @@
+::-webkit-scrollbar {
+    width: 16px;
+}
+::-webkit-scrollbar-track {
+    background: $gray-700;
+}
+::-webkit-scrollbar-thumb {
+    background: $gray-800;
+    border-radius: 8px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: $gray-700;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: $gray-600;
+}
+::-webkit-scrollbar-corner {
+    background: $gray-700;
+    background-image: url(../assets/elements/scrollbar-corner.png);
+}

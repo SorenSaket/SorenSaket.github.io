@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ReX Looper</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="assets/icons/rex-icon.png"/>
+
+        <script src="js/libraries/jquery-3.3.1.min.js"></script>
+        <script src="js/libraries/Tone.min.js"></script>
+        <script src="js/libraries/Sortable.min.js"></script>
+
+        <script src="js/main.js"></script>
+        <script src="js/importer.js"></script>
+        <script src="js/composer.js"></script>
+        <script src="js/effects.js"></script>
+        <script src="js/knob.js"></script>
+        <script src="js/shortcuts.js"></script>
+
+        <link rel="stylesheet" href="css/fontawesome-all.css">
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+        <div id="app">
+            <div id="head">
+                <div class="content">
+                    <div class="branding">
+                        <img id="app-icon" src="assets/icons/rex-icon.png">
+                        <h1>ReX Looper</h1>
+                    </div>
+
+                    <div class="controls">
+                        <div class="button button-square" onclick="TogglePlay()"><i class="fas fa-play"></i></div>
+                        <div class="button button-square" onclick="Stop()"><i class="fas fa-stop"></i></div>
+                        <input id="bpm" type="number" value="120" onload="SetBPM(value)" onchange="SetBPM(event, value)">
+                        <!--<div id="audio">
+                            <div id="master-audio" class="knob" data-value="1" data-min="0" data-max="1" onmousedown="SelectKnob(event)" data-callback="SetMasterGain(e)"></div>
+                        </div>-->
+                        <!--<div class="button button-square"><i class="fas fa-download"></i></div>-->
+                        <div id="settings-button" class="button button-square disabled"><i class="fas fa-cog"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="composer">
+                <div class="content">
+                    <div id="counter">
+                        <div id="transport-progress"></div>
+                        <div class="bar-mod">
+                            <div id="remove-bar" onclick="DecreaseBarCount()"><p>-</p></div>
+                            <div id="add-bar"    onclick="IncreaseBarCount()"><p>+</p></div>
+                        </div>
+                    </div>
+                    <div id="instrument-rack">
+
+                        <div id="instrument-container">
+                            <!--Instruments go in here -->
+                        </div>
+                        <div id="instrument-track-container">
+                            <div class="container-content">
+                                <!--Tracks go in here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scrollbar vertical"></div>
+                <div class="scrollbar horizontal"></div>
+                <div class="scrollbar corner"></div>
+            </div>
+
+            <div id="effects">
+                <div class="content">
+                    <div id="sample-importer">
+                        <div id="sample-import">
+                            <svg viewBox="0 0 196 84"><rect x="2" y="2" width="192" height="80" rx="8" ry="8" fill="transparent" stroke="#20c997" stroke-width="4" stroke-linecap="round" stroke-dasharray="12" stroke-dashoffset="12"/></svg>
+                            <p id="upload-samples">     Upload Samples</p>
+                            <p id="supported-filetypes">(PCM, MP3, AAC, Vorbis, Opus, FLAC)</p>
+                            <input id="file-input" type='file' multiple accept=".wav, .wave, .mp3, .m4a, .mp4, .3gp, .aac, .ogg, .ogv, .oga, .ogx, .ogm, .spx, .opus, .webm, .flac" title=" " />
+                        </div>
+                        <div id="open-libary"   class="button button-wide disabled"><i class="fas fa-book fa-fw"></i><p>Library</p></div>
+                        <div id="record-sample" class="button button-wide disabled"><i class="fas fa-circle fa-fw"></i><p>Record</p></div>
+                    </div>
+                    <div id="instrument-info">
+                        <div class="head">
+                            <input type="text" placeholder="Instrument Name">
+                            <i class="fas fa-edit"></i>
+                            <!--<div id="icon-selector"     class="selector"></div>
+                            <div id="color-selector" class="selector"></div>-->
+                        </div>
+                        <div class="content">
+                            <canvas id="clip-canvas">
+                            </canvas>
+                            <div class="controls">
+                                <div class="control">
+                                    <div class="knob" data-value="1" data-min="0" data-max="1" onmousedown="SelectKnob(event)"></div>
+                                    <p>Volume</p>
+                                </div>
+                                <div class="control">
+                                    <div class="knob" data-value="0" data-min="-1" data-max="1" onmousedown="SelectKnob(event)"></div>
+                                    <p>Pan</p>
+                                </div>
+                                <div class="control">
+                                    <div class="knob" data-value="0" data-min="0" data-max="1" onmousedown="SelectKnob(event)"></div>
+                                    <p>Mono</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="common-controls">
+                            <div class="button button-wide" onclick="ShowModal('effect-picker')">
+                                <i class="fas fa-plug fa-rotate-90"></i>
+                                <p>Effects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="effects-container">
+                        <div class="effect">
+                            <div class="head">
+                                <p>Effect Name</p>
+                                <div class="disable-button"></div>
+                            </div>
+
+                            <div class="controls">
+                                <div class="control">
+                                    <div class="knob" data-value="0" data-min="-1" data-max="1" onmousedown="SelectKnob(event)"></div>
+                                    <p>Pan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal-overlay" style="display: none;">
+                <div id="effect-picker" class="modal" >
+                    <div class="header">
+                        <p>Effect Picker</p>
+                        <div class="disable-button"></div>
+                    </div>
+                    <div class="content">
+                       <ul id="effect-picker-container" class="effects-rack">
+                            <li class="effect">
+                                <div class="toggle bg-orange-h"></div>
+                                <p>Reverb</p>
+                                <div class="handle"></div>
+                            </li>
+                       </ul>
+                    </div>
+                    <div class="footer">
+                        <div class="button button-wide green" onclick="CloseModals()"><i class="fas fa-check green"></i><p>Apply</p></div>
+                        <div class="button button-wide red"><i class="fas fa-ban red"></i><p>Cancel</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

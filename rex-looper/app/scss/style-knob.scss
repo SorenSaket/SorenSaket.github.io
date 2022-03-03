@@ -1,0 +1,28 @@
+.knob{
+    transform: rotate(-90deg);
+    @include size(64px);
+    svg{
+        @include unselectable();
+    }
+    .knob-fill{
+        transition: stroke-dashoffset 0.1s;
+    }
+    g{
+        transform: scale(1.1);
+        transition: transform 0.16s;
+        transform-origin: center;
+    }
+    line{
+        stroke: $gray-400;
+        transition: stroke 0.16s;
+    }
+}
+.knob:hover{
+    g{
+        transform: scale(1);
+
+    }
+    line{
+        stroke: $gray-100;
+    }
+}

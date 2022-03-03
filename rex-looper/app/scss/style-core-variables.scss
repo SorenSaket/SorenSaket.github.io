@@ -1,0 +1,190 @@
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+
+
+.bc-blue{
+    background-color: $blue;
+    cursor: url("../assets/icons/cursors/cursor-blue.png"), auto;
+}
+.bc-indigo{
+    background-color: $indigo;
+    cursor: url("../assets/icons/cursors/cursor-indigo.png"), auto;
+}
+.bc-purple{
+    background-color: $purple;
+    cursor: url("../assets/icons/cursors/cursor-purple.png"), auto;
+}
+.bc-pink{
+    background-color: $pink;
+    cursor: url("../assets/icons/cursors/cursor-pink.png"), auto;
+}
+.bc-red{
+    background-color: $red;
+    cursor: url("../assets/icons/cursors/cursor-red.png"), auto;
+}
+.bc-orange{
+    background-color: $orange;
+    cursor: url("../assets/icons/cursors/cursor-orange.png"), auto;
+}
+.bc-yellow{
+    background-color: $yellow;
+    cursor: url("../assets/icons/cursors/cursor-yellow.png"), auto;
+}
+.bc-green{
+    background-color: $green;
+    cursor: url("../assets/icons/cursors/cursor-green.png"), auto;
+}
+.bc-teal{
+    background-color: $teal;
+    cursor: url("../assets/icons/cursors/cursor-teal.png"), auto;
+}
+.bc-cyan{
+    background-color: $cyan;
+    cursor: url("../assets/icons/cursors/cursor-cyan.png"), auto;
+}
+
+.blue{
+    color: $blue !important;
+}
+.indigo{
+    color: $indigo !important;
+}
+.purple{
+    color: $purple !important;
+}
+.pink{
+    color: $pink !important;
+}
+.red{
+    color: $red !important;
+}
+.orange{
+    color: $orange !important;
+}
+.yellow{
+    color: $yellow !important;
+}
+.green{
+    color: $green !important;
+}
+.teal{
+    color: $teal !important;
+}
+.cyan{
+    color: $cyan !important;
+}
+
+
+.blue-h:hover{
+    color: $blue !important;
+}
+.indigo-h:hover{
+    color: $indigo !important;
+}
+.purple-h:hover{
+    color: $purple !important;
+}
+.pink-h:hover{
+    color: $pink !important;
+}
+.red-h:hover{
+    color: $red !important;
+}
+.orange-h:hover{
+    color: $orange !important;
+}
+.yellow-h:hover{
+    color: $yellow !important;
+}
+.green-h:hover{
+    color: $green !important;
+}
+.teal-h:hover{
+    color: $teal !important;
+}
+.cyan-h:hover{
+    color: $cyan !important;
+}
+
+.bg-blue{
+    background-color: $blue !important;
+}
+.bg-indigo{
+    background-color: $indigo !important;
+}
+.bg-purple{
+    background-color: $purple !important;
+}
+.bg-pink{
+    background-color: $pink !important;
+}
+.bg-red{
+    background-color: $red !important;
+}
+.bg-orange{
+    background-color: $orange !important;
+}
+.bg-yellow{
+    background-color: $yellow !important;
+}
+.bg-green{
+    background-color: $green !important;
+}
+.bg-teal{
+    background-color: $teal !important;
+}
+.bg-cyan{
+    background-color: $cyan !important;
+}
+
+.bg-blue-h:hover{
+    background-color: $blue !important;
+}
+.bg-indigo-h:hover{
+    background-color: $indigo !important;
+}
+.bg-purple-h:hover{
+    background-color: $purple !important;
+}
+.bg-pink-h:hover{
+    background-color: $pink !important;
+}
+.bg-red-h:hover{
+    background-color: $red !important;
+}
+.bg-orange-h:hover{
+    background-color: $orange !important;
+}
+.bg-yellow-h:hover{
+    background-color: $yellow !important;
+}
+.bg-green-h:hover{
+    background-color: $green !important;
+}
+.bg-teal-h:hover{
+    background-color: $teal !important;
+}
+.bg-cyan-h:hover{
+    background-color: $cyan !important;
+}

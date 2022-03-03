@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="icon.png"/>
+    <title>Trigonometry Calculator</title>
+    <script type="text/javascript" src="p5.min.js"></script>
+    <script type="text/javascript" src="p5.dom.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    
+    <script src="trigonometry.js"></script>
+    <script src="trigonometryDraw.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500,600,700,900&amp;subset=latin-ext" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <img src="icon.png" width="32" height="32" alt="A triangle"> 
+        <div class="title">Trigonometry Calculator </div>
+        <span class="navbar-text">
+            made by
+            <a href="https://twitter.com/sorensaket" target="_blank">@sorensaket</a>
+        </span>
+    </nav>
+
+    <div id="content">
+        <div id="canvasparent">
+            
+        </div>
+
+        <div id="IOparent">
+            <div id="output">
+                <div id="outputcontent">
+                
+                </div>
+            </div>
+            <div id="inputs">
+                <div class="row">
+                    <input id="a" class="form-control" type="text" name="a" placeholder="a">
+                    <input id="b" class="form-control" type="text" name="b" placeholder="b">
+                    <input id="c" class="form-control" type="text" name="c" placeholder="c">
+                </div>
+                <div class="row">
+                    <input id="A" class="form-control" type="text" name="A" placeholder="A">
+                    <input id="B" class="form-control" type="text" name="B" placeholder="B">
+                    <input id="C" class="form-control" type="text" name="C" placeholder="C">
+                </div>
+                <div class="row">
+                    <input id="area" class="form-control" type="text" name="area" placeholder="Area" readonly>
+                    <input id="circumference" class="form-control" type="text" name="cir" placeholder="Circumference" readonly>
+                </div>
+                <div class="row">
+                    <button class="primary" onclick="calculate()"><div class="text">Calculate</div> </button>
+                    <button class="outline" onclick="clearInputOutput()"><div class="text">Clear</div> </button>
+
+                    <!--<div class="col-1" id="settingsIconContainer">
+                        <a data-toggle="modal" data-target="#settingsModal">
+                            <img src="settings.png" id="settingsIcon">
+                        </a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--
+    <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Settings</h5>
+                </div>
+                <div class="modal-body">
+                    <p><a href="#" class="tooltip" title="The unit to use for angles">Angle type</a></p>
+                    <select>
+                        <option value="deg">Degrees</option>
+                        <option value="rad">Radians</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close and discard</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</body>
+</html>

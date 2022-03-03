@@ -1,0 +1,102 @@
+@import 'style-core-variables';
+@import 'style-core-fonts';
+$default-cursor: url("../assets/icons/cursor.png") 0 0, auto;
+
+@mixin unselectable {
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    cursor: $default-cursor;
+}
+@mixin fill {
+    width: 100%;
+    height: 100%;
+}
+@mixin size($size) {
+    width: $size;
+    height: $size;
+}
+@mixin bounce{
+    transition-timing-function: cubic-bezier(0.520, -0.035, 0.265, 1.535);
+}
+
+@import 'style-buttons';
+@import 'style-scrollbar';
+@import 'style-knob';
+
+
+:root{
+    // Set the default font family
+    font-family: 'Montserrat', sans-serif;
+    // Set the font size to 0 to prevent interference with black characters in html code
+    font-size: 0;
+    //Set fault cursor
+    cursor: $default-cursor;
+    // Make all text unselectable
+    p, h1, h2, h3, h4, h5{
+        @include unselectable();
+    }
+
+    .disabled{
+        cursor: url("../assets/icons/cursor-not-allowed.png") 0 0, not-allowed !important;
+    }
+
+    
+    input::selection {
+        background: $teal;
+    }
+
+
+
+    /*
+    input[type=range][orient=vertical]
+    {
+        -webkit-appearance: slider-vertical;
+        width: 8px;
+        height: 64px;
+        padding: 0 5px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 4px;
+        margin-left: -6px;
+        background-color: $cyan;
+    }
+    input[type=range][orient=vertical]::-webkit-slider-runnable-track {
+
+        width: 100%;
+        height: 8px;
+        background: #6C757D;
+        border-radius: 4px;
+    }
+    input[type=range]:focus {
+        outline: none;
+    }*/
+}
+
+html, body{
+    margin: 0;
+    @include fill();
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+
+    @include fill();
+
+    #head, #effects{
+        overflow: hidden;
+        transition: height 0.16s;
+        @include bounce();
+    }
+}
+
+@import 'style-head';
+
+@import 'style-composer';
+
+@import 'style-effects';
+
+@import 'style-modal';

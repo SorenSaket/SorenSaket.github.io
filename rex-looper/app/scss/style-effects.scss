@@ -1,0 +1,295 @@
+$effects-height: 256px + 16px;
+$control-height: 76px;
+
+.control{
+    position: relative;
+    width: 64px;
+    height: $control-height;
+
+    p{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+
+        height: $control-height - 64;
+
+        color: $gray-100;
+        text-align: center;
+        line-height: $control-height - 64;
+        font-size: $control-height - 64;
+        font-weight: 600;
+    }
+}
+
+#effects{
+    display: inline-flex;
+    flex-direction: row;
+    height: $effects-height;
+    background-color: $gray-800;
+
+    .content{
+        display: inline-flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+
+        #sample-importer{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            width: 256px;
+            height: 100%;
+            padding: 32px;
+
+            @keyframes play {
+                from { stroke-dashoffset:  0 }
+                  to { stroke-dashoffset:  24 }
+            }
+            //
+            #sample-import{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                box-sizing: border-box;
+                width: 196px;
+                height: 84px;
+                padding: 16px 0px 16px 0px;
+
+                input{
+                    position: absolute;
+                    @include fill();
+                    border: none;
+                    outline : none;
+                    cursor: url("../assets/icons/cursor-active.png"), auto;
+                    font-size: 0px;
+                }
+                // Hide upload button
+                input::-webkit-file-upload-button {
+                    visibility: hidden;
+                }
+
+                p{
+                    color: $gray-100;
+                    text-align: center;
+                    margin: 0px;
+
+                    @include unselectable();
+                }
+                #upload-samples{
+                    font-weight: 700;
+                    font-size: 19px;
+                }
+                #supported-filetypes{
+                    font-weight: 500;
+                    font-size: 9px;
+                }
+                svg{
+                    position: absolute;
+                    rect{
+                        animation: play 0.8s linear infinite;
+                    }
+                    @include unselectable();
+                }
+            }
+            // Pause animation when not hovering
+            #sample-import:not(:hover){
+                svg{
+                    rect{
+                        animation-play-state: paused;
+                    }
+                }
+            }
+            #open-libary:hover{
+                i:before{
+                    content: "\f518";
+                }
+            }
+
+            // Color the record sample button icon red
+            #record-sample{
+                i{
+                    color: $red;
+                }
+            }
+            #record-sample:hover{
+                i:before{
+                    content: "\f130";
+                }
+            }
+        }
+
+        #instrument-info{
+            display: flex;
+            flex-direction: column;
+            
+            height: 100%;
+            width: 256px;
+
+            border-radius: 8px;
+            background-color: $gray-700;
+
+            .head{
+                flex-shrink: 0;
+                position: relative;
+                display: flex;
+                flex-direction: row;
+
+                height: 28px;
+
+                border-bottom: solid 2px $gray-800;
+                box-sizing: content-box;
+
+                input{
+                    height: 100%;
+                    width: 100%;
+                    padding-left: 16px;
+                    padding-right: 40px;
+
+                    font-size: 12px;
+                    text-align: left;
+                    margin: 0;
+                    line-height: 28px;
+                    color: $gray-100;
+                    font-weight: 600;
+                    text-overflow: ellipsis;
+
+                    background-color: transparent;
+                    border: 0;
+                    outline: 0;
+                }
+                input::placeholder, i{
+                    transition: all 0.16s;
+                }
+
+                i{
+                    position: absolute;
+                    right: 16px;
+                    height: 100%;
+                    line-height: 28px;
+                    font-size: 12px;
+                    color: $gray-600;
+                    @include unselectable();
+                }
+
+                .selector{
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+
+                    background-color: $teal;
+                }
+            }
+            .head:hover,.head:focus-within{
+                input::placeholder{
+                    color: $gray-500;
+                }
+                i{
+                    color: $gray-500;
+                    //font-size: 13px;
+                }
+            }
+
+            .content{
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                box-sizing: border-box;
+                padding: 16px;
+                padding-bottom: 0px;
+
+                canvas{
+                    width: 100%;
+                    height: 64px;
+                    border-radius: 8px;
+                    background-color: $gray-800;
+                }
+                .controls{
+                    display: grid;
+                    grid-gap: 8px;
+                    margin-top: 8px;
+                    justify-content: space-between;
+                    grid-template-columns: auto auto auto;
+                }
+            }
+            .common-controls{
+                flex-shrink: 0;
+
+                height: 64px;
+                box-sizing: border-box;
+                padding: 16px;
+                
+
+                .button-wide{
+                    width: 100%;
+                    max-width: none;
+                }
+            }
+        }
+
+        #effects-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            overflow-x: auto;
+
+
+            .effect{
+                min-width: 152px;
+                height: 100%;
+                margin-left: 16px;
+                border-radius: 8px;
+                background-color: $gray-700;
+                overflow: hidden;
+
+                .head{
+                    position: relative;
+                    height: 28px;
+
+                    border-bottom: solid 2px $gray-800;
+                    box-sizing: content-box;
+
+                    .disable-button{
+                        position: absolute;
+                        top: 8px;
+                        left: 8px;
+
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 6px;
+                        background-color: $teal;
+
+                    }
+
+                    p{
+                        height: 100%;
+
+                        font-size: 12px;
+                        text-align: center;
+                        margin: 0;
+                        line-height: 30px;
+                        color: $gray-100;
+                        font-weight: 600;
+
+                    }
+                }
+
+
+                .controls{
+                    display: grid;
+                    grid-gap: 8px;
+                    margin: 8px;
+                    justify-content: center;
+                    grid-template-columns: auto auto;
+                    
+                }
+            }
+        }
+    }
+}

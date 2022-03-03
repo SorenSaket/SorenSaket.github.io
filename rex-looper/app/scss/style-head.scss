@@ -1,0 +1,110 @@
+$head-height: 112px;
+$head-content-height: 64px;
+
+
+#head{
+    display: inline-flex;
+    height: $head-height;
+    background-color: $gray-800;
+
+    .content{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+
+        width: 100%;
+        margin: ($head-height - $head-content-height)/2;
+
+        .branding{
+            display: inline-flex;
+            flex-shrink: 0;
+
+            width: 300px;
+
+            #app-icon{
+                width: 64px;
+                height: 64px;
+                float: left;
+
+            }
+            h1{
+                color: $white;
+                font-size: 32px;
+                line-height: 64px;
+                font-family: 'Montserrat', sans-serif;
+
+                margin: 0px;
+                margin-left: 16px;
+            }
+            @include unselectable();
+        }
+        @media (max-width: 992px) {
+            .branding{
+                display: none;
+            }
+        }
+
+        .controls{
+            position: relative;
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+
+            #bpm{
+                width: 160px;
+                height: $head-content-height;
+
+                outline: 0;
+                border: 0;
+                border-radius: 8px;
+
+                cursor: url("../assets/icons/cursor-text.png") 16 16, text;
+
+                caret-color: $gray-100;
+                color: $gray-100;
+                background-color: $gray-700;
+
+                font-size: 24px;
+                font-weight: 700;
+                text-align: center;
+            }
+            #bpm::-webkit-inner-spin-button, #bpm::-webkit-outer-spin-button{
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            
+            .button{
+                width: $head-content-height;
+                height: $head-content-height;
+                i{
+                    line-height: $head-content-height;
+                }
+            }
+
+            #audio{
+                box-sizing: border-box;
+                padding: 8px;
+
+                background-color: $gray-700;
+                border-radius: 8px;
+            }
+
+            #settings-button{
+                i{
+                    transition: transform .3s linear;
+                    @include bounce();
+                }
+            }
+            #settings-button:hover{
+                i{
+                    transform: rotate(180deg);
+                }
+            }
+
+        }
+
+
+    }
+
+}

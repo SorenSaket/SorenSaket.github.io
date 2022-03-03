@@ -1,0 +1,116 @@
+//
+.button{
+    border-radius: 8px;
+    background-color: $gray-700;
+
+    transition: all 0.16s;
+}
+.button:hover{
+    border-radius: 16px;
+    background-color: $gray-600;
+    cursor: url("../assets/icons/cursor-active.png"), auto;
+}
+
+//
+.button-square{
+    width: 64px;
+    height: 64px;
+
+    i{
+        color: $gray-100;
+
+        font-size: 32px;
+        line-height: 64px;
+        text-align: center;
+
+        @include fill();
+        transition: all 0.16s;
+    }
+}
+.button-square:hover{
+    i{
+        font-size: 36px;
+    }
+}
+//
+.button-wide{
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 32px;
+
+    max-width: 196px;
+    box-shadow: 0px 0px 0px 2px $gray-800;
+
+    i{
+        color: $gray-100;
+        
+
+        font-size: 16px;
+        line-height: 32px;
+        text-align: center;
+
+        margin-left: 8px;
+        margin-right: 8px;
+        transition: all 0.16s;
+        @include bounce();
+    }
+
+    p{
+        display: inline-block;
+
+        height: 100%;
+
+        margin: 0;
+
+        font-size: 16px;
+        line-height: 32px;
+
+        color: $gray-100;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        @include unselectable();
+    }
+}
+.button-wide:hover{
+    box-shadow: none;
+    i{
+        font-size: 18px;
+        margin-left: 16px;
+    }
+    p, i{
+        text-shadow: 1px 0 2px $gray-800, 0 -1px 2px $gray-800, 0 1px 2px $gray-800, -1px 0 2px $gray-800;
+    }
+}
+
+.button.blue:hover{
+    cursor: url("../assets/icons/cursors/cursor-blue.png"), auto;
+}
+.button.indigo:hover{
+    cursor: url("../assets/icons/cursors/cursor-indigo.png"), auto;
+}
+.button.purple:hover{
+    cursor: url("../assets/icons/cursors/cursor-purple.png"), auto;
+}
+.button.pink:hover{
+    cursor: url("../assets/icons/cursors/cursor-pink.png"), auto;
+}
+.button.red:hover{
+    cursor: url("../assets/icons/cursors/cursor-red.png"), auto;
+}
+.button.orange:hover{
+    cursor: url("../assets/icons/cursors/cursor-orange.png"), auto;
+}
+.button.yellow:hover{
+    cursor: url("../assets/icons/cursors/cursor-yellow.png"), auto;
+}
+.button.green:hover{
+    cursor: url("../assets/icons/cursors/cursor-green.png"), auto;
+}
+.button.teal:hover{
+    cursor: url("../assets/icons/cursors/cursor-teal.png"), auto;
+}
+.button.cyan:hover{
+    cursor: url("../assets/icons/cursors/cursor-cyan.png"), auto;
+}

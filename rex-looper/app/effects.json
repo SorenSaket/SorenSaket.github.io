@@ -1,0 +1,35 @@
+[
+    {
+        "effectType": "BitCrusher",
+        "color": "orange",
+        "inputs":[
+            {
+                "inputName": "bits",
+                "type": "knob",
+                "min": 0,
+                "max": 8,
+                "output": "int"
+            }
+        ]
+    },
+    {
+        "effectType": "Freeverb",
+        "color": "cyan",
+        "inputs":[
+            {
+                "inputName": "roomSize",
+                "type": "knob",
+                "min": 0,
+                "max": 4,
+                "output": "float"
+            },
+            {
+                "inputName": "dampening",
+                "type": "knob",
+                "min": 0,
+                "max": 10,
+                "output": "float"
+            }
+        ]
+    }
+]
