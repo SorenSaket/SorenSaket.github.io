@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="../../../js/libs/p5/p5.min.js"></script>
+    <script type="text/javascript" src="../../../js/libs/p5/addons/p5.dom.min.js"></script>
+    <script type="text/javascript" src="../../../js/libs/fraction.min.js"></script>
+    <script type="text/javascript" src="../../../js/libs/three.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="../../../assets/brand/icon.png"/>
+    <script src="vector.js"></script>
+    <script src="vectorDraw.js"></script>
+</head>
+
+<body>
+    <div id="input">
+        <h3>Vector Calculator</h3>
+        <hr>
+        <div id="setablecontainer">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th width="5%" scope="col">n</th>
+                        <th width="45%" scope="col">X</th>
+                        <th width="45%" scope="col">Y</th>
+                        <th width="5%" scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="vectorcontainer">
+                    
+                </tbody>
+            </table>	
+        </div>
+        <div>
+            <button id="addvector" type="button" class="btn btn-primary m-4" onclick="addVector(0,0)">Add Vector</button>
+            <button id="removezerovectors" type="button" class="btn btn-danger m-4" onclick="removeZeroVectors()">Remove 0,0 Vectors</button>
+        </div>
+        <hr>
+        <div>
+            <p>Calculate As:</p>
+            <button class="btn btn-primary" onclick="calculate(true,false)">Points</button>
+            <button class="btn btn-primary" onclick="calculate(false,true)">Vectors</button>
+            <p id="credits">created by @sorensaket</p>   
+        </div>
+
+        <!--<button class="btn btn-primary" onclick="calculateAverage()">Calculate Average</button>
+        <button class="btn btn-primary" onclick="calculateSum()">Calculate Sum</button>-->
+        
+    </div>
+
+    <div id="canvasparent">
+
+    </div>
+
+    <div id="output">
+        <div id="searchcontainer" class="input-group">
+            <input id="searchinput" type="text" class="form-control" placeholder="Seach for values">
+            <span class="input-group-btn">
+                <button id="searchbutton" class="btn btn-primary" onclick="searchOutput()">Find</button>
+            </span>
+        </div>
+        
+        <div id="outputcontainer">
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

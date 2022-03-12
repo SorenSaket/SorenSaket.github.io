@@ -1,0 +1,249 @@
+:root {
+  color: #343a40;
+  font-family: 'Montserrat', sans-serif; }
+  :root ::-moz-selection {
+    background: #007bff;
+    color: white; }
+  :root ::selection {
+    background: #007bff;
+    color: white; }
+
+body, html {
+  margin: 0;
+  width: 100%;
+  height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; }
+  body #quote-container {
+    position: relative;
+    flex-grow: 1;
+    overflow: auto; }
+    body #quote-container #quote {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto auto;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      z-index: -2; }
+      body #quote-container #quote #quote-background {
+        display: block;
+        margin-left: auto;
+        margin-right: auto; }
+      body #quote-container #quote #quote-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0.4); }
+      body #quote-container #quote #quote-text {
+        margin: 16px;
+        user-select: none;
+        word-wrap: break-word;
+        text-align: center;
+        font-size: 48px;
+        font-weight: 700;
+        color: white; }
+      body #quote-container #quote #quote-author {
+        user-select: none;
+        word-wrap: break-word;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 400;
+        color: white; }
+  body #menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 273px;
+    height: 100%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    padding: 16px 32px 16px 32px; }
+    body #menu h1 {
+      text-align: center;
+      margin: 16px 0 32px 0;
+      width: 100%;
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: 6px;
+      transition: letter-spacing 0.16s;
+      user-select: none; }
+    body #menu h1:hover {
+      letter-spacing: 10px;
+      color: #007bff; }
+    body #menu #quote-input {
+      min-height: 128px;
+      max-height: 256px;
+      box-sizing: border-box;
+      padding: 6px;
+      border: solid 2px #343a40;
+      border-radius: 8px;
+      overflow-y: auto;
+      font-size: 16px;
+      transition: all 0.16s; }
+    body #menu #quote-input:focus, body #menu #quote-input:hover {
+      border-radius: 16px;
+      border-color: #007bff;
+      outline: none; }
+    body #menu #size {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      body #menu #size input {
+        display: inline-flex;
+        flex-shrink: 1;
+        width: 48%; }
+      body #menu #size input:after {
+        content: "px"; }
+    body #menu #font-settings {
+      position: relative;
+      height: 32px; }
+      body #menu #font-settings .wrapper-dropdown {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        line-height: 30px; }
+      body #menu #font-settings .dropdown {
+        position: absolute;
+        top: 0;
+        background-color: white;
+        z-index: 3;
+        width: 192px;
+        border: solid 2px #343a40;
+        border-color: #007bff;
+        border-radius: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box; }
+        body #menu #font-settings .dropdown li {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 5px 0;
+          transition: all 0.16s; }
+          body #menu #font-settings .dropdown li a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            margin-left: 8px;
+            color: #343a40;
+            font-size: 16px;
+            transition: all 0.16s;
+            -webkit-user-select: none;
+            user-select: none;
+            pointer-events: none;
+            cursor: default; }
+        body #menu #font-settings .dropdown li:hover {
+          background-color: #007bff;
+          border-color: transparent !important; }
+          body #menu #font-settings .dropdown li:hover a {
+            color: white; }
+    body #menu #overlay-settings input {
+      width: 100%;
+      margin: 0;
+      border: none; }
+    body #menu #overlay-settings input::-webkit-slider-thumb {
+               /* -webkit-appearance: none;
+
+                background-color: $black;*/ }
+    body #menu #image-select p {
+      margin-top: 4px;
+      font-size: 10px;
+      text-align: center; }
+@keyframes play {
+  0% {
+    stroke-dashoffset: 0; }
+  100% {
+    stroke-dashoffset: 64; } }
+    body #menu #image-importer {
+      position: relative;
+      display: flex;
+      height: 84px;
+      align-items: center; }
+      body #menu #image-importer input {
+        position: absolute;
+        border: none;
+        outline: none;
+        font-size: 0px;
+        width: 100%;
+        height: 100%;
+        display: none; }
+      body #menu #image-importer input::-webkit-file-upload-button {
+        visibility: hidden; }
+      body #menu #image-importer svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        -webkit-user-select: none;
+        user-select: none;
+        pointer-events: none;
+        cursor: default; }
+        body #menu #image-importer svg rect {
+          animation: play 2.4s linear infinite; }
+      body #menu #image-importer p {
+        text-align: center;
+        -webkit-user-select: none;
+        user-select: none;
+        pointer-events: none;
+        cursor: default; }
+    body #menu #image-importer:not(:hover) svg rect {
+      animation-play-state: paused; }
+  body #menu > * {
+    margin-bottom: 16px;
+    flex-shrink: 0; }
+
+p {
+  margin: 0; }
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 700; }
+
+input, .input {
+  height: 32px;
+  text-align: center;
+  outline: none;
+  border: solid 2px #343a40;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.16s; }
+
+input:hover, input:focus, .input:hover, input:focus {
+  border-radius: 16px;
+  border-color: #007bff; }
+
+button {
+  width: 100%;
+  height: 32px;
+  border-radius: 8px;
+  border: solid 2px #343a40;
+  border-color: #007bff;
+  color: #343a40;
+  background-color: Transparent;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  transition: all 0.16s; }
+
+button:hover {
+  background-color: #007bff;
+  color: white;
+  border-radius: 16px;
+  letter-spacing: 1px; }
+
+/*# sourceMappingURL=style.css.map */

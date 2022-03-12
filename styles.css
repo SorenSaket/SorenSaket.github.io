@@ -11,6 +11,8 @@ body{
 
 }
 
+
+
 .Page{
 	display: flex;
 	flex-direction: column;
@@ -20,7 +22,7 @@ body{
 	max-width: 960px;
 	min-width: 0;
 	
-	padding: 64px 128px;
+	padding: 64px 96px;
 	margin-bottom: 48px;
 
 	background-color: white;
@@ -35,10 +37,13 @@ body{
 	display: flex;
 	flex-direction: column;
 
-	max-height: 512px;
+	
 
 	margin: 16px 0px;
+	padding: 16px;
 
+	background-color: #EEE;
+	border-radius: 16px;
 }
 
 .Project .Content{
@@ -50,11 +55,13 @@ body{
 
 
 
-.Project .Content img{
+.Project .Content img, .Project .Content iframe{
 	flex: 1;
 	min-width: 0;
 	border: 5px solid black;
+	height: min-content;
 }
+
 .Project .Content .Description{
 	flex: 1;
 	padding: 16px;
@@ -66,6 +73,8 @@ body{
 .Title{
 	font-size: 2em;
 	margin-bottom: 16px;
+	text-decoration: none;
+	color: black;
 }
 
 .Date{

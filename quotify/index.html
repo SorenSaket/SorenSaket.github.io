@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="js/libraries/unsplash-source.min.js"></script>
+        <script src="js/libraries/html2canvas.min.js"></script>
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="scss/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+        <title>Quotify - Visualize your amazing quotes</title>
+        <meta name="description" content="Bring your quotes to life for free with Quotify!">
+        
+    </head>
+    <body ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+        <div id="menu">
+            <h1>Quotify</h1>
+            <div id="quote-input" onkeydown="SetText()" onkeypress="SetText()" onkeyup="SetText()" contenteditable>It always seems impossible <br> until it's done.</div>
+            <input id="author-input" onkeydown="SetText()" onkeypress="SetText()" onkeyup="SetText()" type="text" value="Nelson Mandela">
+            <div id="size">
+                <input id="x-input" type="text" name="width" value="800px" onchange="SetSize()">
+                <input id="y-input" type="text" name="height" value="600px" onchange="SetSize()">
+            </div>
+            <div id="font-settings">
+                <div id="font-select-input" class="wrapper-dropdown input" onclick="OpenFontSelect()">Montserrat</div>
+                <ul id="font-select-dropdown" class="dropdown" style="display: none;" >
+                        
+                </ul>
+            </div>
+
+            <div id="overlay-settings">
+                <input id="overlay-input" type="range" min="0" max="1" value="0.5" step="0.01" oninput="SetOverlay()" onchange="SetOverlay()">
+            </div>
+            <div id="image-select">
+                <button onclick="GetPhoto()">Randomize Image</button>
+                <p id="credits">Photos from <a id="credits-link" href="https://unsplash.com" target="_blank">Unsplash</a> </p>
+            </div>
+            
+            
+            <div id="image-importer" onclick="document.getElementById('file-input').click();">
+                <svg viewBox="0 0 196 84"><rect x="1" y="1" width="194" height="82" rx="8" ry="8" fill="transparent" stroke="#007bff" stroke-width="2" stroke-linecap="round" stroke-dasharray="8"/></svg>
+                <p>Drag and drop to upload an image</p>
+                <input id="file-input" type='file' accept="image/*" title=" " type="hidden" />
+            </div>
+            <button id="download-button" onclick="Download()">Download</button>
+        </div>
+        <div id="quote-container">
+            <div id="quote" crossOrigin="Anonymous">
+                <!-- <img id="quote-background" crossOrigin="Anonymous">-->
+                <p id="quote-text"></p>
+                <p id="quote-author"></p>
+                <div id="quote-overlay"></div>
+            </div>
+        </div>
+    </body>
+</html>
