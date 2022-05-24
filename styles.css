@@ -38,12 +38,12 @@ body{
 	flex-direction: column;
 
 	
-
-	margin: 16px 0px;
-	padding: 16px;
+	margin: 32px 0px;
+	padding: 32px;
 
 	background-color: #EEE;
 	border-radius: 16px;
+	
 }
 
 .Project .Content{
